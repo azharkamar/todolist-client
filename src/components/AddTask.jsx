@@ -9,7 +9,7 @@ function AddTask({ onTaskAdded }) {
     if (!title.trim()) return;
 
     try {
-      const res = await axios.post('${import.meta.env.VITE_API_URL}/tasks', {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/tasks`, {
         title,
         completed: false
       });
