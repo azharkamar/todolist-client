@@ -11,7 +11,7 @@ function TaskList() {
   }, []);
 
   const fetchTasks = () => {
-    axios.get('http://localhost:5000/api/tasks')
+    axios.get('${import.meta.env.VITE_API_URL}/tasks')
       .then(res => setTasks(res.data))
       .catch(err => console.log(err));
   };

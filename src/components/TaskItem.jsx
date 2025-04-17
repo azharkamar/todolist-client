@@ -4,12 +4,12 @@ import axios from 'axios';
 function TaskItem({ task, onToggle, onDelete }) {
   const handleCheckboxChange = async () => {
     const updatedTask = { ...task, completed: !task.completed };
-    const res = await axios.put(`http://localhost:5000/api/tasks/${task._id}`, updatedTask);
+    const res = await axios.put(`${import.meta.env.VITE_API_URL}/tasks/${task._id}`, updatedTask);
     onToggle(res.data);
   };
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:5000/api/tasks/${task._id}`);
+    await axios.delete(`${import.meta.env.VITE_API_URL}/tasks/${task._id}`);
     onDelete(task._id);
   };
 
